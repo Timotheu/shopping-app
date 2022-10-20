@@ -1,5 +1,5 @@
-import React, { Component, useEffect, useState } from "react";
-import { OffCanvas, OffCanvasMenu, OffCanvasBody } from "react-offcanvas";
+import React, { useEffect, useState } from "react";
+import { OffCanvas, OffCanvasMenu } from "react-offcanvas";
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import '../styles/shop.css';
 import CartItem from "./CartItem";

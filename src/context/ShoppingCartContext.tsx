@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import { createContext } from "react";
 import { useContext } from "react";
 import ShoppingCart from "../components/ShoppingCart";
 
 
 type ShoppingCartProviderProps = {
-  children: React.ReactNode 
+  children: ReactNode 
 }
 
-type ShoppingCartContext = {
+type ShoppingCartContextType = {
   openCart: () => void,
   closeCart: () => void,
   getItemQuantity: (id: number) => number,
@@ -24,7 +24,7 @@ type CartItem = {
   quantity: number
 }
 
-const ShoppingCartContext = createContext({} as ShoppingCartContext)
+const ShoppingCartContext = createContext({} as ShoppingCartContextType)
 
 export function useShoppingCart () {
   return useContext(ShoppingCartContext);

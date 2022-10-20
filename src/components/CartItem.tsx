@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useShoppingCart } from "../context/ShoppingCartContext"
 import { ProductDetails } from "../models/types";
 import { getProducts } from "../services/productsAPI";
+import { formatCurrency } from "../utilities/formatPrice";
 
 type CartItemProps = {
   id: number,
@@ -12,7 +13,6 @@ const CartItem: React.FC<CartItemProps> = ({id, quantity}) => {
 
   const { 
     removeFromCart, 
-    getItemQuantity,
     decreaseCartQuantity,
     increaseCartQuantity, 
   } = useShoppingCart();
@@ -31,16 +31,16 @@ const CartItem: React.FC<CartItemProps> = ({id, quantity}) => {
   return (
     <div className="flex flex-row m-4 w-full">
       <div className="bg-white p-8 shadow-lg canvas-product-left">
-        <img src={item?.image} style={{
+        <img src={item?.image} alt="Product" style={{
           width: "80px", objectFit: "cover"
         }}>
         </img>
       </div>
       <div className="canvas-product-right">
         <div className="m-auto text-center p-2 canvas-info">
-          <span className="m-auto text-gray-700">${item?.price}</span><br></br>
+          <span className="m-auto text-gray-700">{formatCurrency(item?.price)}</span><br></br>
           <span className="m-auto text-gray-700 font-bold">{item?.title}</span><br></br>
-          <span className="m-auto text-2xl text-gray-700 font-bold">${item?.price && item.price * quantity}</span>
+          <span className="m-auto text-2xl text-gray-700 font-bold">{item?.price && formatCurrency(item.price * quantity)}</span>
         </div>
         <div className="flex align-items-center flex-row w-12/12">
           <div className="flex items-center justify-center w-12/12 m-auto">

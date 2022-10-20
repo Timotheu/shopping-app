@@ -124,6 +124,14 @@ body {
   width: 33%;
 }
 
+.remove-button-1 {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px;
+  margin-bottom: -2px;
+}
+
 @media (max-width: 1000px) {
   .remove-all-button { display: none; }
   .canvas-product-right { flex-direction: column; }
@@ -135,8 +143,6 @@ body {
   .canvas-product-left { display: none; }
   .canvas-product-right { flex-direction: row; }
   .canvas-cart {   width: 80% !important;  }
-
-
 }
  
 
